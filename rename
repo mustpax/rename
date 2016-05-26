@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+'''rename is a utility for renaming files based on simple
+string substitution.
+'''
+import glob
+import shutil
+import sys
+
+def rename(_from, to):
+    for from_name in glob.glob('*' + _from + '*'):
+        to_name = from_name.replace(_from, to)
+        print "Copying from '%s' to '%s'" % (from_name, to_name)
+        shutil.copy2(from_name, to_name)
+
+def usage():
+    print './rename [old name] [new name]'
+
+if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        usage()
+        sys.exit(1)
+
+    sys.exit(rename(*sys.argv[1:]))
+
