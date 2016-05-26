@@ -13,7 +13,7 @@ def rename(_from, to):
         shutil.copy2(from_name, to_name)
 
 def usage():
-    print './rename [old name] [new name]'
+    print './rename [old name] [new name]\nCopy files in the current directory that contain [old name] to new files where [old name] is replaced with [new name].'
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
